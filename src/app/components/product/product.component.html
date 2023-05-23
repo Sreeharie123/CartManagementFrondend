@@ -3,13 +3,13 @@
     <div class="flex flex-wrap gap-6">
       <div class="lg:w-1/5 md:w-1/2 p-4 w-full bg-slate-200 shadow-xl" *ngFor="let product of allProduct|async">
         <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{product.images[0]}}">
+          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{product.imgUrl}}">
         </a>
         <div class="mt-4">
           <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">{{product.title}}</h2>
+          <h2 class="text-gray-900 title-font text-lg font-medium">{{product.productName}}</h2>
           <div class="flex justify-between items-center">
-            <p class="mt-1">{{product.price}}</p>
+            <p class="mt-1">{{product.price|currency}}</p>
             <button class="w-fit h-full px-3 py-2 bg-green-500 text-white rounded-xl font-bold" (click)="addToCart(product)">Add to Cart</button>
           </div>
         </div>

@@ -16,7 +16,7 @@
     <span class="material-symbols-outlined md:text-4xl text-3xl cursor-pointer">
       account_circle
       </span>
-        <mat-icon matBadge="13" matBadgeColor="primary">
+        <mat-icon [matBadge]="number|async" matBadgeColor="primary">
           <button class="material-symbols-outlined md:text-4xl text-3xl cursor-pointer" routerLink="/cart">
             shopping_cart</button>
         </mat-icon>

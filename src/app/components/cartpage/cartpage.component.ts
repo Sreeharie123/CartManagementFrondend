@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { Cart, Carts} from 'src/app/interfaces/cart';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -11,11 +12,21 @@ export class CartpageComponent implements OnInit {
 
   constructor(private cartService:CartService){}
 
-  cartProduct?:Observable<any>
+  cartProduct:any
+  num:number=1
 
   ngOnInit(): void {
-
    this.cartProduct= this.cartService.getAllCart()
   }
+  addQuantity(res:number ,id:number){
+   this.num=res+1
+    this.cartService.getUpdateQuantity(id,this.num)
 
+  }
+
+  lessQuantity(res:number,id:number){
+    this.num=res-1
+    this.cartService.getUpdateQuantity(id,this.num)
+
+  }
 }
