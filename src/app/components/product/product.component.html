@@ -10,7 +10,7 @@
           <h2 class="text-gray-900 title-font text-lg font-medium">{{product.title}}</h2>
           <div class="flex justify-between items-center">
             <p class="mt-1">{{product.price}}</p>
-            <button class="w-fit h-full px-3 py-2 bg-green-500 text-white rounded-xl font-bold">Add to Cart</button>
+            <button class="w-fit h-full px-3 py-2 bg-green-500 text-white rounded-xl font-bold" (click)="addToCart(product)">Add to Cart</button>
           </div>
         </div>
       </div>
