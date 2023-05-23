@@ -1,15 +1,15 @@
 <section class="text-gray-600 body-font">
   <div class="container px-5 md:py-14 py-6 md:mx-72 mx-auto">
     <div class="flex flex-wrap gap-6">
-      <div class="lg:w-1/5 md:w-1/2 p-4 w-full bg-slate-200 shadow-xl" *ngFor="let item of [1,2,3,4,5,5,6,7,8,3,3,3,]">
+      <div class="lg:w-1/5 md:w-1/2 p-4 w-full bg-slate-200 shadow-xl" *ngFor="let product of allProduct|async">
         <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80">
+          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{product.images[0]}}">
         </a>
         <div class="mt-4">
           <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
+          <h2 class="text-gray-900 title-font text-lg font-medium">{{product.title}}</h2>
           <div class="flex justify-between items-center">
-            <p class="mt-1">$16.00</p>
+            <p class="mt-1">{{product.price}}</p>
             <button class="w-fit h-full px-3 py-2 bg-green-500 text-white rounded-xl font-bold">Add to Cart</button>
           </div>
         </div>

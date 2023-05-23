@@ -9,6 +9,7 @@ import { CartpageComponent } from './components/cartpage/cartpage.component';
 import { ProductComponent } from './components/product/product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatBadgeModule} from '@angular/material/badge';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
