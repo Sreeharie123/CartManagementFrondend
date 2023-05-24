@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Cart, Carts} from 'src/app/interfaces/cart';
+import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart.service';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-cartpage',
@@ -13,20 +15,34 @@ export class CartpageComponent implements OnInit {
   constructor(private cartService:CartService){}
 
   cartProduct:any
-  num:number=1
-
   ngOnInit(): void {
    this.cartProduct= this.cartService.getAllCart()
-  }
-  addQuantity(res:number ,id:number){
-   this.num=res+1
-    this.cartService.getUpdateQuantity(id,this.num)
+   this.cartProduct.subscribe((value:Cart[])=>{
+    this.cartService.cartQuantity.next(value.length)
 
+   })
   }
 
-  lessQuantity(res:number,id:number){
-    this.num=res-1
-    this.cartService.getUpdateQuantity(id,this.num)
+  addQuantity( id:number){
+    this.cartService.getUpdateQuantity(id).subscribe({
+      next:(value)=>{
+        console.log(value)
+      },
+      error:(err)=>{
+        console.log(err)
+      },
+      complete:()=>{
+        console.log("Quantity is updated")
+      }
+    })
+  }
+
+  lessQuantity(id:number){
+    this.cartService.getUpdateQuantityLess(id).subscribe({
+      next:(value)=>{
+        console.log(value)
+      }
+    })
 
   }
 }

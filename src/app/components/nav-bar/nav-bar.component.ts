@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, DoCheck, OnChanges, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -9,11 +9,11 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private cartService:CartService){}
-
-  number?:Observable<any>
-  ngOnInit(): void {
-
-  this.number=this.cartService.getLength()
+  number?:Observable<number>
+  constructor(private cartService:CartService){
   }
+   ngOnInit(): void {
+    this.number=this.cartService.cartQuantity
+  }
+
 }

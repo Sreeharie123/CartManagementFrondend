@@ -9,20 +9,20 @@
   <p>Product</p>
   <p>Quantity</p>
 </div>
-<div class="flex justify-between md:py-10 px-16" *ngFor="let product of cartProduct|async index as i">
+<div class="flex justify-between md:py-10 px-16" *ngFor="let product of cartProduct|async">
   <div class="flex gap-6 items-center">
     <div class="w-80 h-96 rounded-2xl overflow-hidden relative p-5">
-      <img src="{{product.carts[0].imgUrl}}" class="absolute inset-0 object-cover">
+      <img src="{{product.imgUrl}}" class="absolute inset-0 object-cover">
    </div>
-   <p class="text-2xl font-medium">{{product.carts[0].productName}}</p>
+   <p class="text-2xl font-medium">{{product.productName}}</p>
   </div>
 
   <div class="flex gap-4 items-center">
-    <button class="material-symbols-outlined text-4xl" (click)="addQuantity(num,product._id)">
+    <button class="material-symbols-outlined text-4xl" (click)="addQuantity(product._id)">
       add_circle
       </button>
-   <p class="text-3xl">{{product.carts[0].quantity}}</p>
-   <button class="w-8 h-8 flex justify-center items-center material-symbols-outlined border-2 text-4xl border-black rounded-full" (click)="lessQuantity(num,product._id)">
+   <p class="text-3xl">{{product.quantity}}</p>
+   <button class="w-8 h-8 flex justify-center items-center material-symbols-outlined border-2 text-4xl border-black rounded-full" (click)="lessQuantity(product._id)">
     remove
     </button>
   </div>
